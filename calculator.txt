@@ -1,0 +1,76 @@
+
+import tkinter
+from tkinter import *
+expression=""
+
+def press(val):
+    global expression
+    expression+=str(val)
+    equation.set(expression)
+
+def equate():
+    try:
+        equation.set(eval(equation.get()))
+    except:
+        equation.set("error")
+        expression=""
+
+def clear():
+    equation.set("")
+    expression = ""
+
+mainscreen = Tk()
+mainscreen.configure(background='#bda55d')
+mainscreen.geometry('800x600')
+mainscreen.title("Calc")
+equation = StringVar()
+
+box = Entry(mainscreen, textvariable=equation, width=50)
+box.place(relx=0.3, rely=0)
+
+button1 = Button(mainscreen, bg = '#652a0e', fg='black', text='1', width=10, height=2, command=lambda: press(1))
+button1.place(x=120, y=80)
+button2 = Button(mainscreen, bg = '#652a0e', fg='black', text='2', width=10, height=2, command=lambda: press(2))
+button2.place(x = 220, y = 80)
+button3 = Button(mainscreen, bg = '#652a0e', fg='black', text='3', width=10, height=2, command=lambda: press(3))
+button3.place(x = 320, y=80)
+button4 = Button(mainscreen, bg = '#652a0e', fg='black', text='4', width=10, height=2, command=lambda: press(4))
+button4.place(x=420, y=80)
+button5 = Button(mainscreen, bg = '#652a0e', fg='black', text='5', width=10, height=2, command=lambda: press(5))
+button5.place(x = 520, y=80)
+button6 = Button(mainscreen, bg = '#652a0e', fg='black', text='6', width=10, height=2, command=lambda: press(6))
+button6.place(x=120, y = 130)
+button7 = Button(mainscreen, bg = '#652a0e', fg='black', text='7', width=10, height=2, command=lambda: press(7))
+button7.place(x = 220, y = 130)
+button8 = Button(mainscreen, bg = '#652a0e', fg='black', text='8', width=10, height=2, command=lambda: press(8))
+button8.place(x = 320, y = 130)
+button9 = Button(mainscreen, bg = '#652a0e', fg='black', text='9', width=10, height=2, command=lambda: press(9))
+button9.place(x = 420, y = 130)
+button0 = Button(mainscreen, bg = '#652a0e', fg='black', text='0', width=10, height=2, command=lambda: press(0))
+button0.place(x = 520, y = 130)
+
+add = Button(mainscreen, bg = '#652a0e', fg='black', text='+', width=10, height=2, command=lambda: press('+'))
+add.place(x=120, y=180)
+subtract = Button(mainscreen, bg = '#652a0e', fg='black', text='-', width=10, height=2, command=lambda: press('-'))
+subtract.place(x=220, y=180)
+multiply = Button(mainscreen, bg = '#652a0e', fg='black', text='x', width=10, height=2, command=lambda: press('*'))
+multiply.place(x=320, y=180)
+divide = Button(mainscreen, bg = '#652a0e', fg='black', text='/', width=10, height=2, command=lambda: press('/'))
+divide.place(x=420, y=180)
+equal = Button(mainscreen, bg = '#652a0e', fg='black', text='=', width=10, height=2, command=equate)
+equal.place(x=520, y=180)
+clear = Button(mainscreen, bg = '#652a0e', fg='black', text='clear', width=10, height=2, command=clear)
+clear.place(x=320, y=230)
+
+                                                                                                                                                   
+
+mainscreen.mainloop()
+
+
+
+
+
+
+
+
+
